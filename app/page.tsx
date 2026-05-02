@@ -9,7 +9,9 @@ import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
 import Team from '@/components/Team'
 import Contact from '@/components/Contact'
+import Partners from '@/components/Partners'
 import Footer from '@/components/Footer'
+import Chatbot from '@/components/Chatbot'
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -46,8 +48,10 @@ export default function Home() {
         <Services />
         <Portfolio />
         <Team />
+        <Partners />
         <Contact />
         <Footer />
+        <Chatbot />
       </div>
     </main>
   )

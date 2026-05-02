@@ -7,9 +7,6 @@ const nextConfig = {
       { protocol: 'https', hostname: 'source.unsplash.com' },
     ],
   },
-  experimental: {
-    optimizeCss: true,
-  },
 };
 
 export default nextConfig;

@@ -117,7 +117,7 @@ export default function Footer() {
         <div className="glow-line mb-8" />
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-600">
           <span>
-            &copy; {new Date().getFullYear()} CCOI SERVICES. Founded by Ndzouakeu Jeannot Youssef. All rights reserved.
+            &copy; {new Date().getFullYear()} CCOI SERVICES · MF 1867691/N · Rue Omar Kaddeh, Montplaisir 1073 Tunis · <a href="mailto:ccoiservice28@gmail.com" className="hover:text-primary transition-colors">ccoiservice28@gmail.com</a>
           </span>
           <span className="font-mono flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

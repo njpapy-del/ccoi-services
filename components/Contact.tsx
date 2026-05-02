@@ -7,9 +7,9 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import toast from 'react-hot-toast'
 
 const contactInfo = [
-  { icon: HiMail, label: 'Email', value: 'contact@ccoi-services.com', href: 'mailto:contact@ccoi-services.com' },
-  { icon: HiPhone, label: 'Phone', value: '+33 1 XX XX XX XX', href: 'tel:+33100000000' },
-  { icon: HiLocationMarker, label: 'Headquarters', value: 'Paris, France — Remote worldwide', href: '#' },
+  { icon: HiMail, label: 'Email', value: 'ccoiservice28@gmail.com', href: 'mailto:ccoiservice28@gmail.com' },
+  { icon: HiPhone, label: 'Tél / WhatsApp', value: '+216 26 089 553', href: 'https://wa.me/21626089553' },
+  { icon: HiLocationMarker, label: 'Adresse', value: 'Rue Omar Kaddeh, Montplaisir 1073, Tunis', href: 'https://maps.google.com/?q=Montplaisir+Tunis' },
 ]
 
 const fadeUp = {
@@ -85,7 +85,7 @@ export default function Contact() {
             initial="hidden" animate={inView ? 'visible' : 'hidden'}
             variants={fadeUp} custom={1}
           >
-            {contactInfo.map((item, i) => (
+            {contactInfo.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
