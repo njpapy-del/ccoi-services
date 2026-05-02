@@ -39,7 +39,7 @@ const partners = [
 const perks = [
   'Collaboration stratégique sur des projets IT complexes',
   'Expertise complémentaire au service de vos besoins',
-  'Réseau de confiance certifié en Tunisie et à l'international',
+  "Réseau de confiance certifié en Tunisie et à l'international",
 ]
 
 export default function Partners() {
