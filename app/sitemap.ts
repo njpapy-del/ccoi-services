@@ -1,46 +1,42 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://ccoi-services.onrender.com'
+const BASE = 'https://ccoi-services.onrender.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
   return [
+    // ── Homepage ────────────────────────────────────────────────
     {
-      url: BASE_URL,
+      url: BASE,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 1.0,
     },
+    // ── SEO service pages (indexables par Google) ───────────────
     {
-      url: `${BASE_URL}/#about`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/#services`,
+      url: `${BASE}/ai-consulting`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/#portfolio`,
+      url: `${BASE}/saas-development`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.9,
     },
     {
-      url: `${BASE_URL}/#team`,
+      url: `${BASE}/crm-development`,
       lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.6,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
     {
-      url: `${BASE_URL}/#contact`,
+      url: `${BASE}/data-analytics`,
       lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.8,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
   ]
 }
