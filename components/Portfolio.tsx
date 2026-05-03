@@ -103,7 +103,8 @@ const projects: Project[] = [
     gradientFrom: '#06B6D4',
     gradientTo: '#0891b2',
     images: [
-      { src: '', alt: 'Fiches terrain app', type: 'gradient' },
+      { src: '/proj-uct-2.png', alt: 'Fiches UCT — formulaire de saisie et tableau de bord', type: 'img' },
+      { src: '/proj-uct-1.png', alt: 'Fiches UCT — écran de connexion', type: 'img' },
     ],
   },
 ]
