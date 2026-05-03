@@ -11,6 +11,7 @@ import Team from '@/components/Team'
 import Contact from '@/components/Contact'
 import Partners from '@/components/Partners'
 import WhyChooseUs from '@/components/WhyChooseUs'
+import Careers from '@/components/Careers'
 import Footer from '@/components/Footer'
 import Chatbot from '@/components/Chatbot'
 
@@ -51,6 +52,7 @@ export default function Home() {
         <Portfolio />
         <Team />
         <Partners />
+        <Careers />
         <Contact />
         <Footer />
         <Chatbot />
