@@ -1,86 +1,249 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { HiArrowRight, HiExternalLink } from 'react-icons/hi'
+import { useRef, useState, useEffect } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { HiArrowRight, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
-const projects = [
+// ─── Project data ────────────────────────────────────────────────────────────
+
+interface Project {
+  title: string
+  category: string
+  description: string
+  features: string[]
+  stack: string[]
+  color: string
+  images: { src: string; alt: string; type: 'img' | 'gradient' }[]
+  gradientFrom: string
+  gradientTo: string
+  icon?: string
+}
+
+const projects: Project[] = [
   {
-    title: 'NexaFlow CRM',
+    title: 'LNAYCRM',
     category: 'SaaS / CRM',
     description:
-      'Enterprise CRM platform with AI-powered lead scoring, automated pipeline management and real-time analytics dashboard for 500+ concurrent users.',
-    stack: ['Next.js', 'PostgreSQL', 'GPT-4', 'Redis'],
+      'Full-stack CRM SaaS platform built for sales teams. Cloud-native architecture on Supabase PostgreSQL (EU Central), with MinIO object storage for call recordings and exports, and Redis BullMQ for AI-powered async analytics queues.',
+    features: [
+      'AI lead scoring & pipeline automation',
+      'Call recording storage with MinIO',
+      'Redis BullMQ async analytics engine',
+      'Supabase PostgreSQL (EU Central)',
+      'REST API with Prisma ORM',
+      'GDPR-compliant data residency',
+    ],
+    stack: ['Node.js', 'Prisma', 'Supabase', 'MinIO', 'Redis', 'React'],
     color: '#00B4FF',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format',
+    gradientFrom: '#00B4FF',
+    gradientTo: '#0ea5e9',
+    images: [
+      { src: '/proj-lnaycrm-schema.png', alt: 'LNAYCRM architecture schema', type: 'img' },
+      { src: '/proj-lnaycrm-db.png', alt: 'LNAYCRM database schema', type: 'img' },
+    ],
   },
   {
-    title: 'Sentinel AI',
-    category: 'AI / Cybersecurity',
+    title: 'Strowger OS',
+    category: 'AI / Voice Assistant',
     description:
-      'Real-time threat detection system using transformer-based anomaly detection on network traffic, reducing false positives by 87%.',
-    stack: ['PyTorch', 'FastAPI', 'Kafka', 'Kubernetes'],
+      'Proactive AI operating system (Jarvis) with real-time voice interaction via WebSocket. Integrates Claude API with Ollama fallback, Whisper STT, streaming TTS, travel booking (flights + hotels), and offline face-recognition vision.',
+    features: [
+      'Claude API + Ollama LLM fallback',
+      'Whisper STT — streaming TTS pipeline',
+      'Travel search: flights & hotels',
+      'Vision: offline face-recognition',
+      'LangGraph conversation & travel graphs',
+      'Supabase long-term memory',
+    ],
+    stack: ['Python', 'FastAPI', 'WebSocket', 'LangGraph', 'Claude API', 'Whisper'],
     color: '#7C3AED',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80&auto=format',
+    gradientFrom: '#7C3AED',
+    gradientTo: '#6d28d9',
+    images: [
+      { src: '/proj-strowger-ui.webp', alt: 'Strowger OS Jarvis UI', type: 'img' },
+      { src: '/logo-strowger.png', alt: 'Strowger OS logo', type: 'img' },
+    ],
   },
   {
-    title: 'DataPulse Analytics',
-    category: 'Data Engineering',
+    title: 'Scorpus',
+    category: 'AI / Agent Platform',
     description:
-      'Unified data lakehouse platform ingesting 10TB/day from 40+ sources, with real-time BI dashboards and predictive revenue forecasting.',
-    stack: ['Apache Spark', 'dbt', 'Snowflake', 'Superset'],
-    color: '#06B6D4',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format',
-  },
-  {
-    title: 'OmniAssist',
-    category: 'AI / Chatbot',
-    description:
-      'Proactive AI assistant platform for enterprise customer service, handling 15,000 conversations/day with 94% resolution rate without human intervention.',
-    stack: ['LangChain', 'Claude API', 'WebSocket', 'React'],
+      'Multi-LLM conversational agent platform with persistent contextual memory. Runs Qwen locally with Claude as a high-quality fallback, maintaining four memory types (conversation, preference, habit, fact) and a proactive background worker.',
+    features: [
+      'Multi-LLM: Qwen local + Claude fallback',
+      'Persistent memory: 4 types (conversation, preference, habit, fact)',
+      'Proactive background worker',
+      'Session management with 30-min TTL',
+      'Zod schema validation throughout',
+      'Modular plugin architecture',
+    ],
+    stack: ['TypeScript', 'Node.js', 'Express', 'Zod', 'LangChain', 'Ollama'],
     color: '#a855f7',
-    image: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&auto=format',
+    gradientFrom: '#a855f7',
+    gradientTo: '#9333ea',
+    images: [
+      { src: '', alt: 'Scorpus platform', type: 'gradient' },
+    ],
   },
   {
-    title: 'EduForge LMS',
-    category: 'SaaS / Education',
+    title: 'Fiches Terrain — UCT',
+    category: 'Web App / Education',
     description:
-      'AI-adaptive learning management system with personalized learning paths, video streaming and progress analytics for 8,000 active learners.',
-    stack: ['Next.js', 'Node.js', 'MongoDB', 'FFmpeg'],
-    color: '#f59e0b',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80&auto=format',
-  },
-  {
-    title: 'SmartEdge IoT',
-    category: 'Embedded / IoT',
-    description:
-      'Edge AI inference system deployed on ARM microcontrollers for industrial predictive maintenance, reducing equipment downtime by 62%.',
-    stack: ['C++', 'TensorFlow Lite', 'MQTT', 'Rust'],
-    color: '#10b981',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&auto=format',
+      'Field survey digitization app for UCT orientation advisors. Combines React voice input with a custom NLP service to auto-fill forms from spoken data, quality scoring, and bulk export to Excel/CSV — fully containerized with Docker.',
+    features: [
+      'Voice input with browser Web Speech API',
+      'NLP auto-fill from spoken answers',
+      'Quality score per completed form',
+      'Excel / CSV bulk export',
+      'Campaign management & JWT auth',
+      'Docker + PostgreSQL + FastAPI backend',
+    ],
+    stack: ['React', 'Vite', 'TailwindCSS', 'FastAPI', 'PostgreSQL', 'Docker'],
+    color: '#06B6D4',
+    gradientFrom: '#06B6D4',
+    gradientTo: '#0891b2',
+    images: [
+      { src: '', alt: 'Fiches terrain app', type: 'gradient' },
+    ],
   },
 ]
+
+// ─── Gradient image placeholder ──────────────────────────────────────────────
+
+function GradientCard({ from, to, icon }: { from: string; to: string; icon?: string }) {
+  return (
+    <div
+      className="w-full h-full flex items-center justify-center"
+      style={{ background: `linear-gradient(135deg, ${from}22 0%, ${to}44 100%)` }}
+    >
+      <span className="text-6xl opacity-30 select-none">{icon ?? '⬡'}</span>
+    </div>
+  )
+}
+
+// ─── Image carousel ──────────────────────────────────────────────────────────
+
+function ImageCarousel({ images, color, from, to }: {
+  images: Project['images']
+  color: string
+  from: string
+  to: string
+}) {
+  const [idx, setIdx] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const hasMultiple = images.length > 1 && images.some(i => i.type === 'img')
+
+  // auto-play for multi-image cards
+  useEffect(() => {
+    if (!hasMultiple) return
+    const t = setInterval(() => {
+      setDirection(1)
+      setIdx(p => (p + 1) % images.length)
+    }, 3400)
+    return () => clearInterval(t)
+  }, [hasMultiple, images.length])
+
+  const variants = {
+    enter: (d: number) => ({ x: d > 0 ? '100%' : '-100%', opacity: 0 }),
+    center: { x: 0, opacity: 1, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+    exit: (d: number) => ({ x: d > 0 ? '-100%' : '100%', opacity: 0, transition: { duration: 0.4 } }),
+  }
+
+  const go = (dir: number) => {
+    setDirection(dir)
+    setIdx(p => (p + dir + images.length) % images.length)
+  }
+
+  const cur = images[idx]
+
+  return (
+    <div className="relative h-52 overflow-hidden bg-[#0a0a14]">
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={idx}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          className="absolute inset-0"
+        >
+          {cur.type === 'img' ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={cur.src} alt={cur.alt} className="w-full h-full object-cover object-top" />
+          ) : (
+            <GradientCard from={from} to={to} />
+          )}
+          {/* gradient overlay */}
+          <div
+            className="absolute inset-0"
+            style={{ background: `linear-gradient(to bottom, ${color}18 0%, #050508cc 100%)` }}
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Carousel controls */}
+      {hasMultiple && (
+        <>
+          <button
+            onClick={() => go(-1)}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1 rounded-full bg-black/50 text-white hover:bg-black/80 transition"
+            aria-label="Previous"
+          >
+            <HiChevronLeft size={16} />
+          </button>
+          <button
+            onClick={() => go(1)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-1 rounded-full bg-black/50 text-white hover:bg-black/80 transition"
+            aria-label="Next"
+          >
+            <HiChevronRight size={16} />
+          </button>
+
+          {/* Dots */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setDirection(i > idx ? 1 : -1); setIdx(i) }}
+                className="w-1.5 h-1.5 rounded-full transition-all"
+                style={{ background: i === idx ? color : `${color}44` }}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+// ─── Animations ───────────────────────────────────────────────────────────────
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
   }),
 }
 
+// ─── Component ────────────────────────────────────────────────────────────────
+
 export default function Portfolio() {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+  const inView = useInView(ref, { once: true, margin: '-80px' })
   const [hovered, setHovered] = useState<number | null>(null)
+  const [expanded, setExpanded] = useState<number | null>(null)
 
   return (
     <section id="portfolio" className="relative py-32 px-6">
-      {/* BG */}
+      {/* BG grid */}
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
-          backgroundImage: 'linear-gradient(rgba(0,180,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.1) 1px, transparent 1px)',
+          backgroundImage:
+            'linear-gradient(rgba(0,180,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,180,255,0.1) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
         }}
       />
@@ -94,15 +257,15 @@ export default function Portfolio() {
         >
           <span className="section-label mb-6 inline-flex">Our Work</span>
           <h2 className="text-4xl md:text-6xl font-black text-white mt-6 mb-6">
-            Selected <span className="gradient-text">Projects</span>
+            Real <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            A curated selection of systems we've engineered — each solving a real problem at scale.
+            Production systems we built from scratch — each solving a concrete problem with modern AI and cloud architecture.
           </p>
         </motion.div>
 
         {/* Projects grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((proj, i) => (
             <motion.div
               key={proj.title}
@@ -111,63 +274,84 @@ export default function Portfolio() {
               variants={fadeUp} custom={i + 1}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              style={{ border: `1px solid ${proj.color}15` }}
-              whileHover={{ y: -6, borderColor: `${proj.color}40` }}
+              style={{ border: `1px solid ${proj.color}18` }}
+              whileHover={{ y: -4, borderColor: `${proj.color}45` }}
               transition={{ duration: 0.3 }}
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={proj.image}
-                  alt={proj.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div
-                  className="absolute inset-0 transition-opacity duration-300"
-                  style={{
-                    background: `linear-gradient(to bottom, ${proj.color}20, #050508dd)`,
-                  }}
-                />
-                {/* Category badge */}
-                <span
-                  className="absolute top-3 left-3 text-xs font-mono px-3 py-1 rounded-full"
-                  style={{
-                    background: `${proj.color}20`,
-                    border: `1px solid ${proj.color}40`,
-                    color: proj.color,
-                  }}
-                >
-                  {proj.category}
-                </span>
-              </div>
+              {/* Image / Carousel */}
+              <ImageCarousel
+                images={proj.images}
+                color={proj.color}
+                from={proj.gradientFrom}
+                to={proj.gradientTo}
+              />
+
+              {/* Category badge */}
+              <span
+                className="absolute top-3 left-3 z-10 text-xs font-mono px-3 py-1 rounded-full"
+                style={{
+                  background: `${proj.color}22`,
+                  border: `1px solid ${proj.color}44`,
+                  color: proj.color,
+                }}
+              >
+                {proj.category}
+              </span>
 
               {/* Content */}
-              <div className="p-6 glass" style={{ borderTop: `1px solid ${proj.color}10` }}>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">
+              <div className="p-6 glass" style={{ borderTop: `1px solid ${proj.color}12` }}>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
                   {proj.title}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-4">{proj.description}</p>
 
-                {/* Stack */}
+                {/* Feature list — toggle */}
+                <AnimatePresence>
+                  {expanded === i && (
+                    <motion.ul
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1, transition: { duration: 0.35 } }}
+                      exit={{ height: 0, opacity: 0, transition: { duration: 0.25 } }}
+                      className="mb-4 space-y-1 overflow-hidden"
+                    >
+                      {proj.features.map(f => (
+                        <li key={f} className="flex items-start gap-2 text-sm text-slate-300">
+                          <span style={{ color: proj.color }} className="mt-0.5 shrink-0">▸</span>
+                          {f}
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+
+                {/* Stack tags */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {proj.stack.map(t => (
                     <span
                       key={t}
                       className="text-xs font-mono px-2 py-0.5 rounded"
-                      style={{ background: `${proj.color}10`, color: `${proj.color}cc` }}
+                      style={{ background: `${proj.color}12`, color: `${proj.color}cc` }}
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div
-                  className="flex items-center gap-1.5 text-xs font-semibold transition-all"
-                  style={{ color: proj.color }}
-                >
-                  <span>View Case Study</span>
-                  <HiArrowRight size={12} className={`transition-transform ${hovered === i ? 'translate-x-1' : ''}`} />
+                {/* Actions row */}
+                <div className="flex items-center justify-between">
+                  <button
+                    onClick={() => setExpanded(expanded === i ? null : i)}
+                    className="flex items-center gap-1.5 text-xs font-semibold transition-all"
+                    style={{ color: proj.color }}
+                  >
+                    <span>{expanded === i ? 'Hide details' : 'View features'}</span>
+                    <HiArrowRight
+                      size={12}
+                      className={`transition-transform ${hovered === i && expanded !== i ? 'translate-x-1' : ''} ${expanded === i ? 'rotate-90' : ''}`}
+                    />
+                  </button>
+
+                  <span className="text-xs text-slate-600 font-mono">{proj.stack.length} technologies</span>
                 </div>
               </div>
             </motion.div>
