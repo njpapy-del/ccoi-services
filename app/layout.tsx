@@ -2,68 +2,115 @@ import type { Metadata } from 'next'
 import { Toaster } from 'react-hot-toast'
 import './globals.css'
 
+const BASE_URL = 'https://ccoi-services.onrender.com'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ccoi-services.com'),
+  // ── Base URL (résout tous les chemins relatifs /og-image.png, /favicon.ico…) ──
+  metadataBase: new URL(BASE_URL),
+
+  // ── Title ──────────────────────────────────────────────────────────────────
   title: {
-    default: 'CCOI SERVICES — AI Consulting & SaaS Development Company',
+    default: 'AI Consulting & SaaS Development Company | CCOI SERVICES',
     template: '%s | CCOI SERVICES',
   },
+
+  // ── Description ────────────────────────────────────────────────────────────
   description:
-    'CCOI SERVICES is a premium AI consulting and SaaS development company. We engineer intelligent systems, CRM solutions, data analytics, and embedded systems for enterprises in Europe and the USA.',
+    'CCOI SERVICES provides AI solutions, SaaS platforms, CRM systems, data analytics and embedded systems for businesses in Europe and USA. Based in Tunis, Tunisia.',
+
+  // ── Keywords ───────────────────────────────────────────────────────────────
   keywords: [
     'AI consulting',
     'SaaS development',
-    'CRM solutions',
+    'CRM development',
+    'data analytics',
     'artificial intelligence company',
-    'data analytics consulting',
+    'machine learning consulting',
     'intelligent systems',
     'software engineering',
-    'machine learning',
     'embedded systems',
-    'IT consulting',
+    'IT consulting Tunis',
     'CCOI SERVICES',
+    'développement logiciel Tunisie',
   ],
-  authors: [{ name: 'Ndzouakeu Jeannot Youssef', url: 'https://ccoi-services.com' }],
+
+  // ── Authors ────────────────────────────────────────────────────────────────
+  authors: [{ name: 'Ndzouakeu Jeannot Youssef', url: BASE_URL }],
   creator: 'CCOI SERVICES',
   publisher: 'CCOI SERVICES',
+
+  // ── Google Search Console verification ────────────────────────────────────
+  verification: {
+    google: 'kDG7OC1VAzRGKVctU6suy-U-mjwFD1ubjbnOo-IzHpo',
+  },
+
+  // ── Canonical & alternates ─────────────────────────────────────────────────
+  alternates: {
+    canonical: BASE_URL,
+    languages: { 'en-US': BASE_URL },
+  },
+
+  // ── Robots ─────────────────────────────────────────────────────────────────
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+
+  // ── Open Graph ─────────────────────────────────────────────────────────────
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ccoi-services.com',
+    url: BASE_URL,
     siteName: 'CCOI SERVICES',
-    title: 'CCOI SERVICES — Engineering the Future with AI & Intelligent Systems',
+    title: 'AI Consulting & SaaS Development Company | CCOI SERVICES',
     description:
-      'Premium AI consulting, SaaS development, CRM solutions and data analytics for enterprises in Europe and the USA.',
+      'CCOI SERVICES provides AI solutions, SaaS platforms, CRM systems, data analytics and embedded systems for businesses in Europe and USA.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'CCOI SERVICES — AI & Intelligent Systems',
+        alt: 'CCOI SERVICES — AI Consulting & SaaS Development',
+        type: 'image/png',
       },
     ],
   },
+
+  // ── Twitter / X ────────────────────────────────────────────────────────────
   twitter: {
     card: 'summary_large_image',
-    title: 'CCOI SERVICES — AI Consulting & SaaS Development',
-    description: 'Engineering the future with AI & Intelligent Systems.',
-    images: ['/og-image.png'],
+    site: '@ccoiservices',
     creator: '@ccoiservices',
+    title: 'AI Consulting & SaaS Development | CCOI SERVICES',
+    description:
+      'CCOI SERVICES — AI solutions, SaaS platforms & CRM systems for enterprises in Europe and USA.',
+    images: [{ url: '/og-image.png', alt: 'CCOI SERVICES' }],
   },
+
+  // ── Icons ──────────────────────────────────────────────────────────────────
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png' }],
   },
+
   manifest: '/site.webmanifest',
-  alternates: {
-    canonical: 'https://ccoi-services.com',
-  },
+
+  // ── App info ───────────────────────────────────────────────────────────────
+  applicationName: 'CCOI SERVICES',
+  category: 'technology',
 }
 
 export default function RootLayout({
