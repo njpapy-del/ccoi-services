@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Toaster } from 'react-hot-toast'
+import SchemaOrg from '@/components/SchemaOrg'
 import './globals.css'
 
 const BASE_URL = 'https://ccoi-services.onrender.com'
@@ -121,6 +122,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-dark text-slate-100 antialiased overflow-x-hidden">
+        <SchemaOrg />
         <Toaster
           position="bottom-right"
           toastOptions={{

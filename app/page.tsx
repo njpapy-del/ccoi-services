@@ -10,6 +10,7 @@ import Portfolio from '@/components/Portfolio'
 import Team from '@/components/Team'
 import Contact from '@/components/Contact'
 import Partners from '@/components/Partners'
+import WhyChooseUs from '@/components/WhyChooseUs'
 import Footer from '@/components/Footer'
 import Chatbot from '@/components/Chatbot'
 
@@ -46,6 +47,7 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+        <WhyChooseUs />
         <Portfolio />
         <Team />
         <Partners />
