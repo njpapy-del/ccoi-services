@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://ccoi-services.onrender.com'
+const BASE_URL = 'https://www.ccoiservice.online'
 
 export default function robots(): MetadataRoute.Robots {
   return {

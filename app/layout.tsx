@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast'
 import SchemaOrg from '@/components/SchemaOrg'
 import './globals.css'
 
-const BASE_URL = 'https://ccoi-services.onrender.com'
+const BASE_URL = 'https://www.ccoiservice.online'
 
 export const metadata: Metadata = {
   // ── Base URL (résout tous les chemins relatifs /og-image.png, /favicon.ico…) ──

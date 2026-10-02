@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import ServicePageLayout from '@/components/ServicePageLayout'
 
-const BASE = 'https://ccoi-services.onrender.com'
+const BASE = 'https://www.ccoiservice.online'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),

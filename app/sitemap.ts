@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE = 'https://ccoi-services.onrender.com'
+const BASE = 'https://www.ccoiservice.online'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

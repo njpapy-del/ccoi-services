@@ -21,19 +21,40 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'LNAYCRM',
-    category: 'SaaS / CRM',
+    title: 'TaxiTrust',
+    category: 'Mobility / Distributed Platform',
     description:
-      'Full-stack CRM SaaS platform built for sales teams. Cloud-native architecture on Supabase PostgreSQL (EU Central), with MinIO object storage for call recordings and exports, and Redis BullMQ for AI-powered async analytics queues.',
+      'Distributed digital mobility platform: NestJS backend, PostgreSQL + Prisma, Redis and Socket.IO real-time communications, React Native / Expo mobile apps for riders and drivers, and centralized admin interfaces — deployed and supervised in the cloud.',
     features: [
-      'AI lead scoring & pipeline automation',
-      'Call recording storage with MinIO',
-      'Redis BullMQ async analytics engine',
-      'Supabase PostgreSQL (EU Central)',
-      'REST API with Prisma ORM',
-      'GDPR-compliant data residency',
+      'NestJS backend — PostgreSQL + Prisma ORM',
+      'Real-time flows with Socket.IO & Redis',
+      'React Native / Expo rider & driver apps',
+      'Geolocation, matching logic & dynamic pricing',
+      'User & role management + admin dashboards',
+      'Cloud deployment, monitoring & cross-source data consistency',
     ],
-    stack: ['Node.js', 'Prisma', 'Supabase', 'MinIO', 'Redis', 'React'],
+    stack: ['NestJS', 'PostgreSQL', 'Prisma', 'Redis', 'Socket.IO', 'React Native', 'Expo'],
+    color: '#EF4444',
+    gradientFrom: '#EF4444',
+    gradientTo: '#dc2626',
+    images: [
+      { src: '/proj-taxitrust-logo.webp', alt: 'TaxiTrust platform logo', type: 'img' },
+    ],
+  },
+  {
+    title: 'LNAYCRM',
+    category: 'SaaS / CRM / Contact Center',
+    description:
+      'Full-stack CRM & contact-center SaaS platform. Users, roles and workflows, IP telephony with Asterisk integration, call handling and full interaction history, plus supervision interfaces — on Supabase PostgreSQL, MinIO storage and Redis BullMQ queues.',
+    features: [
+      'User, role & workflow management',
+      'IP telephony — Asterisk integration',
+      'Call handling, recordings (MinIO) & interaction history',
+      'Real-time supervision dashboards',
+      'Redis BullMQ async analytics & AI lead scoring',
+      'Supabase PostgreSQL (EU Central) — GDPR data residency',
+    ],
+    stack: ['Node.js', 'Prisma', 'Supabase', 'Asterisk', 'MinIO', 'Redis', 'React'],
     color: '#00B4FF',
     gradientFrom: '#00B4FF',
     gradientTo: '#0ea5e9',
@@ -43,17 +64,38 @@ const projects: Project[] = [
     ],
   },
   {
-    title: 'Strowger OS',
-    category: 'AI / Voice Assistant',
+    title: '26Powerlines',
+    category: 'SaaS / Call Center ERP',
     description:
-      'Proactive AI operating system (Jarvis) with real-time voice interaction via WebSocket. Integrates Claude API with Ollama fallback, Whisper STT, streaming TTS, travel booking (flights + hotels), and offline face-recognition vision.',
+      'Enterprise SaaS platform for call-center operations: HR & recruitment, attendance, quality monitoring, production, planning, payroll and reporting — with fine-grained RBAC (9 roles), role-based real-time dashboards and full audit trail. Turborepo monorepo, 57 data models.',
     features: [
-      'Claude API + Ollama LLM fallback',
+      'HR, recruitment, attendance & planning modules',
+      'Quality grids & agent evaluations',
+      'Payroll, bonuses & production objectives',
+      'RBAC — 9 roles, JWT + refresh tokens, audit logs',
+      'Real-time KPIs, internal chat & notifications (Redis)',
+      'Appointment pipeline & analytics (TTR, TPR, trends)',
+    ],
+    stack: ['Next.js 15', 'React 19', 'NestJS 11', 'Prisma', 'PostgreSQL', 'Redis', 'Turborepo'],
+    color: '#F59E0B',
+    gradientFrom: '#F59E0B',
+    gradientTo: '#d97706',
+    images: [
+      { src: '', alt: '26Powerlines platform', type: 'gradient' },
+    ],
+  },
+  {
+    title: 'Strowger / Strio OS',
+    category: 'AI / Digital Assistant',
+    description:
+      'Digital assistant architecture able to interact with many services and data sources: service & API integration, context management, application memory, automation and multi-channel interaction (messaging and productivity tools), with real-time voice over WebSocket.',
+    features: [
+      'Service & API integration — messaging and productivity tools',
+      'Context management & long-term application memory (Supabase)',
+      'Multi-channel interaction & automation',
+      'Claude API + Ollama LLM fallback, LangGraph orchestration',
       'Whisper STT — streaming TTS pipeline',
-      'Travel search: flights & hotels',
-      'Vision: offline face-recognition',
-      'LangGraph conversation & travel graphs',
-      'Supabase long-term memory',
+      'Modular backend architecture (FastAPI, WebSocket)',
     ],
     stack: ['Python', 'FastAPI', 'WebSocket', 'LangGraph', 'Claude API', 'Whisper'],
     color: '#7C3AED',
@@ -83,6 +125,27 @@ const projects: Project[] = [
     gradientTo: '#9333ea',
     images: [
       { src: '', alt: 'Scorpus platform', type: 'gradient' },
+    ],
+  },
+  {
+    title: 'Lab AI',
+    category: 'Data / Machine Learning',
+    description:
+      'Data & AI project on a real-world dataset of ~10,000 observations: data preparation, model benchmarking, classification and prediction. The final pipeline combines Gradient Boosting for classification with a Random Forest Regressor for estimation.',
+    features: [
+      'Data cleaning & feature preparation (~10k observations)',
+      'Benchmarking of multiple ML models',
+      'Classification with Gradient Boosting',
+      'Estimation with Random Forest Regressor',
+      'Performance evaluation & model combination',
+      'Statistical dashboards & anomaly detection use cases',
+    ],
+    stack: ['Python', 'scikit-learn', 'Pandas', 'Gradient Boosting', 'Random Forest'],
+    color: '#10B981',
+    gradientFrom: '#10B981',
+    gradientTo: '#059669',
+    images: [
+      { src: '', alt: 'Lab AI', type: 'gradient' },
     ],
   },
   {

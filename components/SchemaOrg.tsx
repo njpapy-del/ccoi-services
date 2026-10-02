@@ -6,17 +6,17 @@ export default function SchemaOrg() {
   const organization = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness'],
-    '@id': 'https://ccoi-services.onrender.com/#organization',
+    '@id': 'https://www.ccoiservice.online/#organization',
     name: 'CCOI SERVICES',
     legalName: 'CCOI SERVICES',
-    url: 'https://ccoi-services.onrender.com',
+    url: 'https://www.ccoiservice.online',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://ccoi-services.onrender.com/og-image.png',
+      url: 'https://www.ccoiservice.online/og-image.png',
       width: 1200,
       height: 630,
     },
-    image: 'https://ccoi-services.onrender.com/og-image.png',
+    image: 'https://www.ccoiservice.online/og-image.png',
     description:
       'CCOI SERVICES is a premium AI consulting and SaaS development company providing intelligent systems, CRM solutions, data analytics and embedded systems for enterprises in Europe and the USA.',
     foundingDate: '2023',
@@ -63,7 +63,7 @@ export default function SchemaOrg() {
             '@type': 'Service',
             name: 'AI Consulting',
             description: 'Proactive AI systems, NLP, machine learning and intelligent automation for enterprises.',
-            url: 'https://ccoi-services.onrender.com/ai-consulting',
+            url: 'https://www.ccoiservice.online/ai-consulting',
           },
         },
         {
@@ -72,7 +72,7 @@ export default function SchemaOrg() {
             '@type': 'Service',
             name: 'SaaS Development',
             description: 'Custom cloud-native SaaS platforms built for scale, performance and reliability.',
-            url: 'https://ccoi-services.onrender.com/saas-development',
+            url: 'https://www.ccoiservice.online/saas-development',
           },
         },
         {
@@ -81,7 +81,7 @@ export default function SchemaOrg() {
             '@type': 'Service',
             name: 'CRM Development',
             description: 'AI-powered custom CRM solutions with advanced pipeline management and analytics.',
-            url: 'https://ccoi-services.onrender.com/crm-development',
+            url: 'https://www.ccoiservice.online/crm-development',
           },
         },
         {
@@ -90,7 +90,7 @@ export default function SchemaOrg() {
             '@type': 'Service',
             name: 'Data Analytics',
             description: 'End-to-end data engineering, real-time dashboards and predictive analytics.',
-            url: 'https://ccoi-services.onrender.com/data-analytics',
+            url: 'https://www.ccoiservice.online/data-analytics',
           },
         },
       ],
@@ -114,11 +114,11 @@ export default function SchemaOrg() {
   const website = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://ccoi-services.onrender.com/#website',
-    url: 'https://ccoi-services.onrender.com',
+    '@id': 'https://www.ccoiservice.online/#website',
+    url: 'https://www.ccoiservice.online',
     name: 'CCOI SERVICES',
     description: 'AI Consulting & SaaS Development Company',
-    publisher: { '@id': 'https://ccoi-services.onrender.com/#organization' },
+    publisher: { '@id': 'https://www.ccoiservice.online/#organization' },
     inLanguage: 'en-US',
   }
 
