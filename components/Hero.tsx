@@ -101,9 +101,12 @@ function ParticleCanvas() {
 
 /* ─── Photos d'arrière-plan animées ───────────────────────────────────── */
 const bgPhotos = [
+  '/web/bg-code.webp',
   '/proj-strowger-ui.webp',
+  '/web/bg-laptop.webp',
   '/proj-lnaycrm-schema.png',
   '/proj-uct-2.png',
+  '/web/bg-workspace.webp',
   '/proj-lnaycrm-db.png',
   '/proj-uct-1.png',
 ]
@@ -183,12 +186,36 @@ const framePhotos = [
     title: 'Ndzouakeu Jeannot Youssef',
     subtitle: 'Founder & Chief AI Engineer',
   },
+  // Photos Unsplash (licence Unsplash) — illustrations du domaine
   {
-    // Photo Unsplash (photo-1573164713988-8665fc963095, licence Unsplash)
+    src: '/web/frame-code.webp',
+    alt: 'Code source affiché sur plusieurs écrans de développeur',
+    title: 'Software Engineering',
+    subtitle: 'SaaS · CRM · APIs',
+  },
+  {
     src: '/hero-datacenter.webp',
     alt: 'Ingénieure supervisant une infrastructure cloud en data center',
     title: 'Cloud & Infrastructure',
     subtitle: 'Scalable · Secure · 24/7',
+  },
+  {
+    src: '/web/frame-ai.webp',
+    alt: 'Illustration abstraite de l’intelligence artificielle',
+    title: 'Artificial Intelligence',
+    subtitle: 'LLM · Agents · Machine Learning',
+  },
+  {
+    src: '/web/frame-hardware.webp',
+    alt: 'Circuit électronique illuminé',
+    title: 'Embedded & IoT Systems',
+    subtitle: 'Hardware · Firmware · Edge',
+  },
+  {
+    src: '/web/frame-servers.webp',
+    alt: 'Baie de serveurs et câblage réseau',
+    title: 'DevOps & Networks',
+    subtitle: 'Docker · CI/CD · Monitoring',
   },
 ]
 
@@ -196,7 +223,7 @@ function FramePhotos() {
   const [idx, setIdx] = useState(0)
 
   useEffect(() => {
-    const t = setInterval(() => setIdx(i => (i + 1) % framePhotos.length), 5000)
+    const t = setInterval(() => setIdx(i => (i + 1) % framePhotos.length), 4500)
     return () => clearInterval(t)
   }, [])
 
