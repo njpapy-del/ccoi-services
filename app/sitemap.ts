@@ -1,42 +1,30 @@
 import { MetadataRoute } from 'next'
 
-const BASE = 'https://www.ccoiservice.online'
+const BASE = 'https://ccoiservice.online'
+
+// Date de dernière modification réelle du contenu de chaque page.
+// À mettre à jour quand le contenu d'une page change.
+const LAST_MODIFIED = {
+  home: '2026-10-02',
+  services: '2026-10-02',
+}
+
+// Pages services réellement présentes dans app/
+const servicePages = ['ai-consulting', 'saas-development', 'crm-development', 'data-analytics']
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
-
   return [
-    // ── Homepage ────────────────────────────────────────────────
     {
       url: BASE,
-      lastModified: now,
+      lastModified: LAST_MODIFIED.home,
       changeFrequency: 'monthly',
       priority: 1.0,
     },
-    // ── SEO service pages (indexables par Google) ───────────────
-    {
-      url: `${BASE}/ai-consulting`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE}/saas-development`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE}/crm-development`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${BASE}/data-analytics`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
+    ...servicePages.map(slug => ({
+      url: `${BASE}/${slug}`,
+      lastModified: LAST_MODIFIED.services,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
   ]
 }

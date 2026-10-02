@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import ServicePageLayout from '@/components/ServicePageLayout'
 
-const BASE = 'https://www.ccoiservice.online'
+const BASE = 'https://ccoiservice.online'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
-  title: 'SaaS Development Company — Custom Platforms | CCOI SERVICES',
+  title: { absolute: 'SaaS Development Company — Custom Platforms | CCOI SERVICES' },
   description:
     'CCOI SERVICES builds scalable, production-ready SaaS platforms for startups and enterprises. Custom cloud-native architecture, multi-tenant systems and AI-powered features for Europe and USA markets.',
   keywords: [
@@ -15,11 +15,12 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BASE}/saas-development` },
   openGraph: {
+    type: 'website',
     title: 'SaaS Development Company | CCOI SERVICES',
     description: 'Custom cloud-native SaaS platforms built for scale. From MVP to enterprise — AI-powered, production-ready, delivered fast.',
     url: `${BASE}/saas-development`,
     siteName: 'CCOI SERVICES',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
 }
 

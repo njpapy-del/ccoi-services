@@ -3,10 +3,10 @@ import { Toaster } from 'react-hot-toast'
 import SchemaOrg from '@/components/SchemaOrg'
 import './globals.css'
 
-const BASE_URL = 'https://www.ccoiservice.online'
+const BASE_URL = 'https://ccoiservice.online'
 
 export const metadata: Metadata = {
-  // ── Base URL (résout tous les chemins relatifs /og-image.png, /favicon.ico…) ──
+  // ── Base URL (résout tous les chemins relatifs /og-image.jpg, /favicon.ico…) ──
   metadataBase: new URL(BASE_URL),
 
   // ── Title ──────────────────────────────────────────────────────────────────
@@ -77,11 +77,11 @@ export const metadata: Metadata = {
       'CCOI SERVICES provides AI solutions, SaaS platforms, CRM systems, data analytics and embedded systems for businesses in Europe and USA.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'CCOI SERVICES — AI Consulting & SaaS Development',
-        type: 'image/png',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     title: 'AI Consulting & SaaS Development | CCOI SERVICES',
     description:
       'CCOI SERVICES — AI solutions, SaaS platforms & CRM systems for enterprises in Europe and USA.',
-    images: [{ url: '/og-image.png', alt: 'CCOI SERVICES' }],
+    images: [{ url: '/og-image.jpg', alt: 'CCOI SERVICES' }],
   },
 
   // ── Icons ──────────────────────────────────────────────────────────────────

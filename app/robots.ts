@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const BASE_URL = 'https://www.ccoiservice.online'
+const BASE_URL = 'https://ccoiservice.online'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,10 +8,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        // Seules les routes API (formulaires contact / candidatures) sont techniques
         disallow: ['/api/'],
       },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
   }
 }

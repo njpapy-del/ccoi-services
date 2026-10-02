@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import ServicePageLayout from '@/components/ServicePageLayout'
 
-const BASE = 'https://www.ccoiservice.online'
+const BASE = 'https://ccoiservice.online'
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
-  title: 'CRM Development Services — Custom CRM Solutions | CCOI SERVICES',
+  title: { absolute: 'CRM Development Services — Custom CRM Solutions | CCOI SERVICES' },
   description:
     'CCOI SERVICES builds custom AI-powered CRM systems tailored to your sales processes. Automated pipelines, lead scoring, analytics dashboards and integrations for businesses in Europe and USA.',
   keywords: [
@@ -15,11 +15,12 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${BASE}/crm-development` },
   openGraph: {
+    type: 'website',
     title: 'CRM Development Services | CCOI SERVICES',
     description: 'Custom AI-powered CRM solutions — automated pipelines, intelligent lead scoring and real-time analytics for European and US enterprises.',
     url: `${BASE}/crm-development`,
     siteName: 'CCOI SERVICES',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
 }
 
