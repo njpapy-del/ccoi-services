@@ -175,6 +175,91 @@ function TypingText() {
   )
 }
 
+/* ─── Photos du cadre animé ───────────────────────────────────────────── */
+const framePhotos = [
+  {
+    src: '/ingenieurIA.png',
+    alt: 'Ndzouakeu Jeannot Youssef — Founder, CCOI SERVICES',
+    title: 'Ndzouakeu Jeannot Youssef',
+    subtitle: 'Founder & Chief AI Engineer',
+  },
+  {
+    // Photo Unsplash (photo-1573164713988-8665fc963095, licence Unsplash)
+    src: '/hero-datacenter.webp',
+    alt: 'Ingénieure supervisant une infrastructure cloud en data center',
+    title: 'Cloud & Infrastructure',
+    subtitle: 'Scalable · Secure · 24/7',
+  },
+]
+
+function FramePhotos() {
+  const [idx, setIdx] = useState(0)
+
+  useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % framePhotos.length), 5000)
+    return () => clearInterval(t)
+  }, [])
+
+  const cur = framePhotos[idx]
+
+  return (
+    <>
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={cur.src}
+          className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src={cur.src}
+            alt={cur.alt}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 256px, 288px"
+            priority={idx === 0}
+          />
+        </motion.div>
+      </AnimatePresence>
+      {/* Bottom gradient overlay */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32"
+        style={{ background: 'linear-gradient(to top, #050508ee, transparent)' }}
+      />
+      {/* Caption badge */}
+      <div className="absolute bottom-4 left-4 right-4">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={cur.title}
+            className="glass rounded-xl px-4 py-2.5"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4 }}
+          >
+            <div className="text-white font-bold text-sm">{cur.title}</div>
+            <div className="text-primary text-xs font-mono mt-0.5">{cur.subtitle}</div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      {/* Dots */}
+      <div className="absolute top-3 right-3 flex gap-1.5">
+        {framePhotos.map((p, i) => (
+          <button
+            key={p.src}
+            onClick={() => setIdx(i)}
+            aria-label={`Photo ${i + 1}`}
+            className="w-1.5 h-1.5 rounded-full transition-all"
+            style={{ background: i === idx ? '#00B4FF' : 'rgba(255,255,255,0.35)' }}
+          />
+        ))}
+      </div>
+    </>
+  )
+}
+
 /* ─── Hero ────────────────────────────────────────────────────────────── */
 export default function Hero() {
   return (
@@ -300,26 +385,7 @@ export default function Hero() {
               className="relative w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden"
               style={{ border: '2px solid rgba(0,180,255,0.3)' }}
             >
-              <Image
-                src="/ingenieurIA.png"
-                alt="Ndzouakeu Jeannot Youssef — Founder, CCOI SERVICES"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 256px, 288px"
-                priority
-              />
-              {/* Bottom gradient overlay */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-32"
-                style={{ background: 'linear-gradient(to top, #050508ee, transparent)' }}
-              />
-              {/* Name badge on photo */}
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="glass rounded-xl px-4 py-2.5">
-                  <div className="text-white font-bold text-sm">Ndzouakeu Jeannot Youssef</div>
-                  <div className="text-primary text-xs font-mono mt-0.5">Founder & Chief AI Engineer</div>
-                </div>
-              </div>
+              <FramePhotos />
             </div>
           </div>
 
