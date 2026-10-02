@@ -11,6 +11,7 @@ interface Brand {
 }
 
 const brands: Brand[] = [
+  { name: 'Juri-T', logo: '/logos/juri-t.svg', color: '#E70013', tag: 'LegalTech · Tabarka' },
   { name: 'TaxiTrust', logo: '/logos/taxitrust.webp', color: '#EF4444', tag: 'Mobility' },
   { name: 'LNAYCRM', color: '#00B4FF', tag: 'CRM · Contact Center' },
   { name: '26Powerlines', color: '#F59E0B', tag: 'Call Center ERP' },

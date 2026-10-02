@@ -8,6 +8,7 @@ import About from '@/components/About'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
 import ProjectsMarquee from '@/components/ProjectsMarquee'
+import JuriT from '@/components/JuriT'
 import Team from '@/components/Team'
 import Contact from '@/components/Contact'
 import Partners from '@/components/Partners'
@@ -52,6 +53,7 @@ export default function Home() {
         <Services />
         <WhyChooseUs />
         <Portfolio />
+        <JuriT />
         <Team />
         <Partners />
         <Careers />

@@ -21,6 +21,30 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'Juri-T',
+    category: 'LegalTech / Mobile & Web',
+    description:
+      'Mobile and web application dedicated to Tunisian case law (jurisprudence), delivered for the Tabarka region. Juri-T makes court decisions searchable and accessible to legal professionals and citizens, from a smartphone or a web portal.',
+    features: [
+      'Case-law search by keyword, court, date & subject',
+      'Android & iOS mobile application',
+      'Web portal + administration back-office',
+      'Publication & management of court decisions',
+      'User accounts & role management',
+      'Regional deployment — Tabarka (Jendouba)',
+    ],
+    stack: ['React Native', 'Next.js', 'NestJS', 'PostgreSQL', 'REST API'],
+    color: '#E70013',
+    gradientFrom: '#E70013',
+    gradientTo: '#9b0010',
+    images: [
+      { src: '/logos/juri-t.svg', alt: 'Juri-T logo', type: 'img' },
+      { src: '/tabarka/fort.webp', alt: 'Tabarka — fort génois', type: 'img' },
+      { src: '/tabarka/aiguilles.webp', alt: 'Tabarka — les Aiguilles', type: 'img' },
+      { src: '/tabarka/port.webp', alt: 'Tabarka — le port', type: 'img' },
+    ],
+  },
+  {
     title: 'TaxiTrust',
     category: 'Mobility / Distributed Platform',
     description:
@@ -232,7 +256,12 @@ function ImageCarousel({ images, color, from, to }: {
           exit="exit"
           className="absolute inset-0"
         >
-          {cur.type === 'img' ? (
+          {cur.type === 'img' && cur.src.endsWith('.svg') ? (
+            <div className="w-full h-full bg-white flex items-center justify-center p-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={cur.src} alt={cur.alt} className="max-h-full max-w-full object-contain" />
+            </div>
+          ) : cur.type === 'img' ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={cur.src} alt={cur.alt} className="w-full h-full object-cover object-top" />
           ) : (
