@@ -7,7 +7,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import toast from 'react-hot-toast'
 
 const contactInfo = [
-  { icon: HiMail, label: 'Email', value: 'ccoiservice28@gmail.com', href: 'mailto:ccoiservice28@gmail.com' },
+  { icon: HiMail, label: 'Email', value: 'ccoiservice851@gmail.com', href: 'mailto:ccoiservice851@gmail.com' },
   { icon: HiPhone, label: 'Tél / WhatsApp', value: '+216 26 089 553', href: 'https://wa.me/21626089553' },
   { icon: HiLocationMarker, label: 'Adresse', value: 'Rue Omar Kaddeh, Montplaisir 1073, Tunis', href: 'https://maps.google.com/?q=Montplaisir+Tunis' },
 ]

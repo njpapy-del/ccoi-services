@@ -303,7 +303,7 @@ export default function Careers() {
             </h2>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto">
               Nous construisons des systèmes intelligents pour des clients en Europe et aux USA.
-              Rejoignez une équipe de 6 ingénieurs passionnés basée à Tunis.
+              Rejoignez une équipe de 12 ingénieurs passionnés basée à Tunis.
             </p>
           </motion.div>
 

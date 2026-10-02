@@ -7,6 +7,7 @@ import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
+import ProjectsMarquee from '@/components/ProjectsMarquee'
 import Team from '@/components/Team'
 import Contact from '@/components/Contact'
 import Partners from '@/components/Partners'
@@ -46,6 +47,7 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
         <Hero />
+        <ProjectsMarquee />
         <About />
         <Services />
         <WhyChooseUs />

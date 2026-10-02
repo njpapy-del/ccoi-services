@@ -25,7 +25,7 @@ export default function SchemaOrg() {
       name: 'Ndzouakeu Jeannot Youssef',
       jobTitle: 'Founder & Chief AI Engineer',
     },
-    numberOfEmployees: { '@type': 'QuantitativeValue', value: 6 },
+    numberOfEmployees: { '@type': 'QuantitativeValue', value: 12 },
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Rue Omar Kaddeh',
@@ -48,7 +48,7 @@ export default function SchemaOrg() {
         areaServed: ['TN', 'EU', 'US'],
       },
     ],
-    email: 'ccoiservice28@gmail.com',
+    email: 'ccoiservice851@gmail.com',
     telephone: '+216-26-089-553',
     sameAs: [
       'https://github.com/njpapy-del',

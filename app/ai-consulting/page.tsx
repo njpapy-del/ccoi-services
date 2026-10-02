@@ -33,7 +33,7 @@ const schema = {
     name: 'CCOI SERVICES',
     url: BASE,
     telephone: '+216-26-089-553',
-    email: 'ccoiservice28@gmail.com',
+    email: 'ccoiservice851@gmail.com',
   },
   areaServed: ['Europe', 'USA', 'Tunisia'],
   url: `${BASE}/ai-consulting`,
@@ -53,7 +53,7 @@ export default function AIConsultingPage() {
 At CCOI SERVICES, our AI consulting practice helps enterprises design, build and deploy intelligent systems
 that automate complex processes, predict business outcomes and create new revenue streams.
 
-With a team of 6 senior AI engineers based in Tunis, Tunisia, we serve clients across Europe and the United States.
+With a team of 12 senior AI engineers based in Tunis, Tunisia, we serve clients across Europe and the United States.
 Our AI-first philosophy means every solution we deliver is built with intelligence as a core feature, not a bolt-on addition.
 Whether you need to automate customer service with conversational AI, build recommendation engines,
 extract insights from unstructured data with NLP, or create proactive AI agents that act on your behalf —
@@ -99,7 +99,7 @@ CCOI SERVICES has the expertise to deliver production-grade AI systems on time a
         },
       ]}
       benefits={[
-        '6 senior AI engineers with 5+ years of ML/AI experience',
+        '12 senior AI engineers with 5+ years of ML/AI experience',
         'AI-first approach — intelligence is core, not a feature',
         'End-to-end delivery: from strategy to production deployment',
         'Experience with European GDPR and US compliance requirements',

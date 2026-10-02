@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { HiArrowDown } from 'react-icons/hi'
 import { BsStars } from 'react-icons/bs'
 import Image from 'next/image'
@@ -99,6 +99,48 @@ function ParticleCanvas() {
   return <canvas ref={canvasRef} id="particle-canvas" className="absolute inset-0" />
 }
 
+/* ─── Photos d'arrière-plan animées ───────────────────────────────────── */
+const bgPhotos = [
+  '/proj-strowger-ui.webp',
+  '/proj-lnaycrm-schema.png',
+  '/proj-uct-2.png',
+  '/proj-lnaycrm-db.png',
+  '/proj-uct-1.png',
+]
+
+function BackgroundSlideshow() {
+  const [idx, setIdx] = useState(0)
+
+  useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % bgPhotos.length), 6000)
+    return () => clearInterval(t)
+  }, [])
+
+  return (
+    <div className="absolute inset-0 overflow-hidden" aria-hidden>
+      <AnimatePresence>
+        <motion.div
+          key={idx}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.3 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.8, ease: 'easeInOut' }}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center ken-burns"
+            style={{ backgroundImage: `url(${bgPhotos[idx]})`, filter: 'grayscale(30%) blur(1px)' }}
+          />
+        </motion.div>
+      </AnimatePresence>
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(120deg, #050508f2 0%, #050508b3 45%, #0a0a2099 100%)' }}
+      />
+    </div>
+  )
+}
+
 /* ─── Typing indicator ─────────────────────────────────────────────────── */
 function TypingText() {
   const [idx, setIdx] = useState(0)
@@ -137,6 +179,7 @@ function TypingText() {
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-dark">
+      <BackgroundSlideshow />
       <ParticleCanvas />
       <div className="absolute inset-0 bg-grid opacity-40" />
       <div
@@ -186,7 +229,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            Équipe de <span className="text-white font-semibold">6 ingénieurs d'élite</span> basés
+            Équipe de <span className="text-white font-semibold">12 ingénieurs d'élite</span> basés
             à <span className="text-primary font-semibold">Tunis</span>, construisant des systèmes
             IA, plateformes SaaS et solutions intelligentes pour les entreprises{' '}
             <span className="text-white font-semibold">en Europe et aux USA</span>.
@@ -207,13 +250,12 @@ export default function Hero() {
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-3 gap-6 max-w-sm mx-auto lg:mx-0"
+            className="grid grid-cols-2 gap-6 max-w-[16rem] mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
           >
             {[
-              { value: '6+', label: 'Ingénieurs' },
-              { value: '50+', label: 'Projets' },
+              { value: '12', label: 'Ingénieurs' },
               { value: '2', label: 'Continents' },
             ].map(stat => (
               <div key={stat.label} className="text-center lg:text-left">
@@ -294,10 +336,10 @@ export default function Hero() {
             </a>
           </div>
           <a
-            href="mailto:ccoiservice28@gmail.com"
+            href="mailto:ccoiservice851@gmail.com"
             className="text-xs text-slate-500 hover:text-primary transition-colors font-mono"
           >
-            ccoiservice28@gmail.com
+            ccoiservice851@gmail.com
           </a>
         </motion.div>
       </div>

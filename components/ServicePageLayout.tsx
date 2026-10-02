@@ -219,7 +219,7 @@ export default function ServicePageLayout({
             Back to CCOI SERVICES Home
           </Link>
           <p className="text-xs text-slate-700 mt-3">
-            © {new Date().getFullYear()} CCOI SERVICES · Rue Omar Kaddeh, Montplaisir 1073, Tunis · ccoiservice28@gmail.com
+            © {new Date().getFullYear()} CCOI SERVICES · Rue Omar Kaddeh, Montplaisir 1073, Tunis · ccoiservice851@gmail.com
           </p>
         </footer>
       </div>

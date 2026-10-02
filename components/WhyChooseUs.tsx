@@ -40,7 +40,7 @@ const reasons = [
   },
   {
     icon: HiStar,
-    title: '6 Senior Engineers',
+    title: '12 Senior Engineers',
     body: 'A tight-knit team of specialists — no juniors, no outsourcing. Every project is handled by senior engineers with 5+ years of domain expertise.',
     color: '#10b981',
   },

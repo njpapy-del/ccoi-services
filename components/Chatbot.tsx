@@ -37,15 +37,15 @@ const FAQ: { patterns: RegExp[]; answer: string }[] = [
   },
   {
     patterns: [/formation|cours|apprendre|bootcamp|enseign/i],
-    answer: `Nos **programmes de formation** incluent :\n\n🎯 Bootcamp IA/ML (2 semaines)\n🏗️ Architecture logicielle\n☁️ DevOps & Cloud\n🐍 Python avancé\n\nFormations en présentiel à Tunis ou en distanciel.\nContactez **ccoiservice28@gmail.com** pour un programme personnalisé.`,
+    answer: `Nos **programmes de formation** incluent :\n\n🎯 Bootcamp IA/ML (2 semaines)\n🏗️ Architecture logicielle\n☁️ DevOps & Cloud\n🐍 Python avancé\n\nFormations en présentiel à Tunis ou en distanciel.\nContactez **ccoiservice851@gmail.com** pour un programme personnalisé.`,
   },
   {
     patterns: [/prix|tarif|devis|coût|budget|combien/i],
-    answer: `Nos tarifs sont adaptés à chaque projet.\n\n💡 **Devis gratuit** sous 24h après échange.\n\nPour démarrer :\n📞 **+216 26 089 553**\n📧 **ccoiservice28@gmail.com**\n\nOu utilisez le formulaire de contact sur cette page !`,
+    answer: `Nos tarifs sont adaptés à chaque projet.\n\n💡 **Devis gratuit** sous 24h après échange.\n\nPour démarrer :\n📞 **+216 26 089 553**\n📧 **ccoiservice851@gmail.com**\n\nOu utilisez le formulaire de contact sur cette page !`,
   },
   {
     patterns: [/contact|joindre|appel|téléphone|email|mail|whatsapp/i],
-    answer: `Voici nos coordonnées :\n\n📞 **+216 26 089 553** (Appel & WhatsApp)\n📧 **ccoiservice28@gmail.com**\n📍 Rue Omar Kaddeh, Montplaisir 1073, Tunis\n\nHoraires : Lun–Ven, 9h–18h (GMT+1)\n\nRéponse garantie sous **24 heures** !`,
+    answer: `Voici nos coordonnées :\n\n📞 **+216 26 089 553** (Appel & WhatsApp)\n📧 **ccoiservice851@gmail.com**\n📍 Rue Omar Kaddeh, Montplaisir 1073, Tunis\n\nHoraires : Lun–Ven, 9h–18h (GMT+1)\n\nRéponse garantie sous **24 heures** !`,
   },
   {
     patterns: [/adresse|localisation|où|tunis|bureau|siège/i],
@@ -53,7 +53,7 @@ const FAQ: { patterns: RegExp[]; answer: string }[] = [
   },
   {
     patterns: [/équipe|ingénieur|team|fondateur|youssef|ndzouakeu/i],
-    answer: `CCOI SERVICES est composé de **6 ingénieurs seniors** spécialisés :\n\n👨‍💻 IA & ML\n🏗️ Architecture SaaS\n📊 Data Engineering\n🔌 Systèmes Embarqués\n🌐 Full Stack\n\nFondé par **Ndzouakeu Jeannot Youssef**, expert en systèmes intelligents.`,
+    answer: `CCOI SERVICES est composé de **12 ingénieurs seniors** spécialisés :\n\n👨‍💻 IA & ML\n🏗️ Architecture SaaS\n📊 Data Engineering\n🔌 Systèmes Embarqués\n🌐 Full Stack\n\nFondé par **Ndzouakeu Jeannot Youssef**, expert en systèmes intelligents.`,
   },
   {
     patterns: [/délai|livraison|durée|temps|planning/i],
@@ -61,7 +61,7 @@ const FAQ: { patterns: RegExp[]; answer: string }[] = [
   },
   {
     patterns: [/merci|thanks|parfait|super|excellent|top/i],
-    answer: `Avec plaisir ! 😊\n\nN'hésitez pas si vous avez d'autres questions.\n\nPour démarrer votre projet :\n📞 **+216 26 089 553**\n📧 **ccoiservice28@gmail.com**`,
+    answer: `Avec plaisir ! 😊\n\nN'hésitez pas si vous avez d'autres questions.\n\nPour démarrer votre projet :\n📞 **+216 26 089 553**\n📧 **ccoiservice851@gmail.com**`,
   },
 ]
 

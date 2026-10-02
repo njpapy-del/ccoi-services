@@ -5,8 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import { HiChip, HiGlobeAlt, HiLightningBolt, HiUsers } from 'react-icons/hi'
 
 const stats = [
-  { icon: HiUsers, value: '6', label: 'Expert Engineers', color: '#00B4FF' },
-  { icon: HiChip, value: '50+', label: 'Projects Delivered', color: '#7C3AED' },
+  { icon: HiUsers, value: '12', label: 'Expert Engineers', color: '#00B4FF' },
   { icon: HiGlobeAlt, value: '2', label: 'Continents Served', color: '#06B6D4' },
   { icon: HiLightningBolt, value: '98%', label: 'Client Satisfaction', color: '#a855f7' },
 ]
@@ -20,7 +19,7 @@ const pillars = [
   {
     num: '02',
     title: 'Engineering Excellence',
-    body: 'Six senior engineers with deep expertise in software architecture, embedded systems and cloud-native development.',
+    body: 'Twelve senior engineers with deep expertise in software architecture, embedded systems and cloud-native development.',
   },
   {
     num: '03',
@@ -72,7 +71,7 @@ export default function About() {
         </motion.div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-24">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}

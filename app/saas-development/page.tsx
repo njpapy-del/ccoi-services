@@ -33,7 +33,7 @@ const schema = {
     name: 'CCOI SERVICES',
     url: BASE,
     telephone: '+216-26-089-553',
-    email: 'ccoiservice28@gmail.com',
+    email: 'ccoiservice851@gmail.com',
   },
   areaServed: ['Europe', 'USA', 'Tunisia'],
   url: `${BASE}/saas-development`,
@@ -53,7 +53,7 @@ export default function SaaSDevelopmentPage() {
 It demands deep architectural thinking, performance engineering, security by design and a product mindset that keeps user experience at the center.
 
 CCOI SERVICES is a specialized SaaS development company with a proven track record of delivering scalable, production-ready platforms for B2B and B2C markets in Europe and the United States.
-Our team of 6 senior engineers has built SaaS products across industries including fintech, healthcare, e-commerce, HR and education — each handling thousands to millions of concurrent users.
+Our team of 12 senior engineers has built SaaS products across industries including fintech, healthcare, e-commerce, HR and education — each handling thousands to millions of concurrent users.
 
 We don't just build software. We architect digital products that grow with your business.
 From defining your technical architecture to shipping your first paying customer, CCOI SERVICES is your end-to-end SaaS development partner.`}

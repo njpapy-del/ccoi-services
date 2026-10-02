@@ -33,7 +33,7 @@ const schema = {
     name: 'CCOI SERVICES',
     url: BASE,
     telephone: '+216-26-089-553',
-    email: 'ccoiservice28@gmail.com',
+    email: 'ccoiservice851@gmail.com',
   },
   areaServed: ['Europe', 'USA', 'Tunisia'],
   url: `${BASE}/crm-development`,

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const TO_EMAIL = process.env.CONTACT_EMAIL || 'ccoiservice28@gmail.com'
+const TO_EMAIL = process.env.CONTACT_EMAIL || 'ccoiservice851@gmail.com'
 
 export async function POST(request: NextRequest) {
   try {
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
             <div style="font-weight:700;margin-bottom:12px;color:#e2e8f0">Nos coordonnées</div>
             <div style="color:#94a3b8;font-size:14px;line-height:2">
               📞 <a href="https://wa.me/21626089553" style="color:#00B4FF;text-decoration:none">+216 26 089 553</a> (WhatsApp)<br/>
-              📧 <a href="mailto:ccoiservice28@gmail.com" style="color:#00B4FF;text-decoration:none">ccoiservice28@gmail.com</a><br/>
+              📧 <a href="mailto:ccoiservice851@gmail.com" style="color:#00B4FF;text-decoration:none">ccoiservice851@gmail.com</a><br/>
               📍 Rue Omar Kaddeh, Montplaisir 1073, Tunis
             </div>
           </div>

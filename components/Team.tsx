@@ -114,7 +114,7 @@ export default function Team() {
         >
           <span className="section-label mb-6 inline-flex">The Team</span>
           <h2 className="text-4xl md:text-6xl font-black text-white mt-6 mb-6">
-            Six <span className="gradient-text">Elite Engineers</span>
+            Twelve <span className="gradient-text">Elite Engineers</span>
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
             A tight-knit team of specialists who bring precision, creativity and technical depth to every mandate.
