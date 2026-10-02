@@ -99,46 +99,26 @@ function ParticleCanvas() {
   return <canvas ref={canvasRef} id="particle-canvas" className="absolute inset-0" />
 }
 
-/* ─── Photos d'arrière-plan animées ───────────────────────────────────── */
-const bgPhotos = [
-  '/web/bg-code.webp',
-  '/proj-strowger-ui.webp',
-  '/web/bg-laptop.webp',
-  '/proj-lnaycrm-schema.png',
-  '/proj-uct-2.png',
-  '/web/bg-workspace.webp',
-  '/proj-lnaycrm-db.png',
-  '/proj-uct-1.png',
-]
-
-function BackgroundSlideshow() {
-  const [idx, setIdx] = useState(0)
-
-  useEffect(() => {
-    const t = setInterval(() => setIdx(i => (i + 1) % bgPhotos.length), 6000)
-    return () => clearInterval(t)
-  }, [])
-
+/* ─── Vidéo d'arrière-plan ────────────────────────────────────────────── */
+function BackgroundVideo() {
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden>
-      <AnimatePresence>
-        <motion.div
-          key={idx}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.3 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.8, ease: 'easeInOut' }}
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center ken-burns"
-            style={{ backgroundImage: `url(${bgPhotos[idx]})`, filter: 'grayscale(30%) blur(1px)' }}
-          />
-        </motion.div>
-      </AnimatePresence>
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/video/hero-poster.jpg"
+      >
+        <source src="/video/hero.webm" type="video/webm" />
+        <source src="/video/hero.mp4" type="video/mp4" />
+      </video>
+      {/* Voile pour garder le texte lisible */}
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(120deg, #050508f2 0%, #050508b3 45%, #0a0a2099 100%)' }}
+        style={{ background: 'linear-gradient(100deg, #050508f0 0%, #050508cc 40%, #05050866 75%, #05050899 100%)' }}
       />
     </div>
   )
@@ -291,12 +271,12 @@ function FramePhotos() {
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-dark">
-      <BackgroundSlideshow />
+      <BackgroundVideo />
       <ParticleCanvas />
-      <div className="absolute inset-0 bg-grid opacity-40" />
+      <div className="absolute inset-0 bg-grid opacity-20" />
       <div
         className="absolute inset-0"
-        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 40%, #050508 100%)' }}
+        style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 50%, #050508aa 100%)' }}
       />
       <div
         className="absolute top-1/2 left-0 right-0 h-px opacity-20"
