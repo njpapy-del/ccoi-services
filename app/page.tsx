@@ -15,6 +15,7 @@ import Contact from '@/components/Contact'
 import Partners from '@/components/Partners'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import Careers from '@/components/Careers'
+import YoungTalent from '@/components/YoungTalent'
 import Footer from '@/components/Footer'
 import Chatbot from '@/components/Chatbot'
 
@@ -59,6 +60,7 @@ export default function Home() {
         <JuriT />
         <Team />
         <Partners />
+        <YoungTalent />
         <Careers />
         <Contact />
         <Footer />

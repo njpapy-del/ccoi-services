@@ -17,6 +17,16 @@ const team = [
     photo: '/ingenieurIA.png',
   },
   {
+    name: 'Nour Rouissi',
+    role: 'Backend Maintenance Engineer',
+    bio: 'Young graduate engineer in AI & Software Engineering. Maintains and evolves the backends of our production platforms.',
+    skills: ['Backend', 'APIs', 'AI', 'Software Eng.'],
+    color: '#ec4899',
+    initials: 'NR',
+    isNew: true,
+    photo: '/team/nour-rouissi.webp',
+  },
+  {
     name: 'Alexis Moreau',
     role: 'Senior Backend Engineer',
     bio: 'Distributed systems specialist with 8+ years building high-throughput APIs and microservices.',
@@ -134,6 +144,14 @@ export default function Team() {
               transition={{ duration: 0.3 }}
             >
               {/* Founder badge */}
+              {member.isNew && (
+                <span
+                  className="absolute top-4 right-4 text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full"
+                  style={{ background: `${member.color}20`, color: member.color, border: `1px solid ${member.color}30` }}
+                >
+                  YOUNG TALENT
+                </span>
+              )}
               {member.isFounder && (
                 <span
                   className="absolute top-4 right-4 text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full"
