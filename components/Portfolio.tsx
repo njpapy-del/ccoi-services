@@ -8,18 +8,42 @@ import { HiArrowRight, HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
 interface Project {
   title: string
+  url?: string
   category: string
   description: string
   features: string[]
   stack: string[]
   color: string
-  images: { src: string; alt: string; type: 'img' | 'gradient' }[]
+  images: { src: string; alt: string; type: 'img' | 'gradient'; logoBg?: string }[]
   gradientFrom: string
   gradientTo: string
   icon?: string
 }
 
 const projects: Project[] = [
+  {
+    title: 'Ligalo',
+    url: 'https://ligalo.tn/fr/',
+    category: '★ Featured · LegalTech / SaaS',
+    description:
+      'Cloud all-in-one software for law offices in Tunisia — lawyers, bailiffs (huissiers) and notaries. Case management, AI-assisted drafting, legal research and secure digital archives, in Arabic and French, with Microsoft Word integration.',
+    features: [
+      'Case & file management, daily journal, deadlines & alerts',
+      'AI drafting assistant + Microsoft Word add-in',
+      'Smart legal research across legal texts',
+      'Template library, deeds drafting & digital archives',
+      'Property duties & inheritance calculators',
+      'Team roles, permissions, access log, encryption & backups',
+    ],
+    stack: ['SaaS Cloud', 'AI', 'Microsoft Word Add-in', 'Arabic / French', 'RBAC'],
+    color: '#2563EB',
+    gradientFrom: '#2563EB',
+    gradientTo: '#0b1f4d',
+    images: [
+      { src: '/proj-ligalo-screens.webp', alt: 'Ligalo — calendrier et outils de calcul', type: 'img' },
+      { src: '/proj-ligalo-logo.webp', alt: 'Ligalo logo', type: 'img', logoBg: '#ffffff' },
+    ],
+  },
   {
     title: 'Juri-T',
     category: 'LegalTech / Mobile & Web',
@@ -62,7 +86,7 @@ const projects: Project[] = [
     gradientFrom: '#EF4444',
     gradientTo: '#dc2626',
     images: [
-      { src: '/proj-taxitrust-logo.webp', alt: 'TaxiTrust platform logo', type: 'img' },
+      { src: '/proj-taxitrust-logo.webp', alt: 'TaxiTrust platform logo', type: 'img', logoBg: '#ffffff' },
     ],
   },
   {
@@ -127,7 +151,7 @@ const projects: Project[] = [
     gradientTo: '#6d28d9',
     images: [
       { src: '/proj-strowger-ui.webp', alt: 'Strowger OS Jarvis UI', type: 'img' },
-      { src: '/logo-strowger.png', alt: 'Strowger OS logo', type: 'img' },
+      { src: '/logo-strowger.png', alt: 'Strowger OS logo', type: 'img', logoBg: '#000000' },
     ],
   },
   {
@@ -256,8 +280,8 @@ function ImageCarousel({ images, color, from, to }: {
           exit="exit"
           className="absolute inset-0"
         >
-          {cur.type === 'img' && cur.src.endsWith('.svg') ? (
-            <div className="w-full h-full bg-white flex items-center justify-center p-10">
+          {cur.type === 'img' && (cur.logoBg || cur.src.endsWith('.svg')) ? (
+            <div className="w-full h-full flex items-center justify-center p-10" style={{ background: cur.logoBg ?? '#ffffff' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={cur.src} alt={cur.alt} className="max-h-full max-w-full object-contain" />
             </div>
@@ -444,7 +468,19 @@ export default function Portfolio() {
                     />
                   </button>
 
-                  <span className="text-xs text-slate-600 font-mono">{proj.stack.length} technologies</span>
+                  {proj.url ? (
+                    <a
+                      href={proj.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold font-mono hover:underline"
+                      style={{ color: proj.color }}
+                    >
+                      Visit site ↗
+                    </a>
+                  ) : (
+                    <span className="text-xs text-slate-600 font-mono">{proj.stack.length} technologies</span>
+                  )}
                 </div>
               </div>
             </motion.div>

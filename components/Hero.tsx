@@ -289,7 +289,7 @@ export default function Hero() {
         {/* ── Left: text ── */}
         <div className="flex-1 text-center lg:text-left">
           <motion.div
-            className="flex justify-center lg:justify-start mb-8"
+            className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8"
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -297,6 +297,13 @@ export default function Hero() {
               <BsStars className="text-primary" />
               AI &amp; Intelligent Systems
             </span>
+            <a
+              href="#ligalo"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all hover:scale-105"
+              style={{ background: 'rgba(37,99,235,0.18)', border: '1px solid rgba(37,99,235,0.55)', color: '#bcd0ff' }}
+            >
+              ★ Créateurs de Ligalo — logiciel juridique →
+            </a>
           </motion.div>
 
           <motion.h1

@@ -11,6 +11,7 @@ interface Brand {
 }
 
 const brands: Brand[] = [
+  { name: 'Ligalo', logo: '/logos/ligalo.webp', color: '#2563EB', tag: 'LegalTech SaaS' },
   { name: 'Juri-T', logo: '/logos/juri-t.svg', color: '#E70013', tag: 'LegalTech · Tabarka' },
   { name: 'TaxiTrust', logo: '/logos/taxitrust.webp', color: '#EF4444', tag: 'Mobility' },
   { name: 'LNAYCRM', color: '#00B4FF', tag: 'CRM · Contact Center' },

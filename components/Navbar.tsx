@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Logo from './Logo'
 
 const links = [
+  { label: 'Ligalo', href: '#ligalo' },
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Portfolio', href: '#portfolio' },
