@@ -99,22 +99,45 @@ function ParticleCanvas() {
   return <canvas ref={canvasRef} id="particle-canvas" className="absolute inset-0" />
 }
 
-/* ─── Vidéo d'arrière-plan ────────────────────────────────────────────── */
+/* ─── Vidéos d'arrière-plan (enchaînées en fondu) ─────────────────────── */
+const bgVideos = [
+  { webm: '/video/hero.webm', mp4: '/video/hero.mp4' },
+  { webm: '/video/hero2.webm', mp4: '/video/hero2.mp4' },
+]
+
 function BackgroundVideo() {
+  const [active, setActive] = useState(0)
+  const refs = useRef<(HTMLVideoElement | null)[]>([])
+
+  const playNext = () => {
+    const next = (active + 1) % bgVideos.length
+    const v = refs.current[next]
+    if (v) {
+      v.currentTime = 0
+      v.play().catch(() => {})
+    }
+    setActive(next)
+  }
+
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden>
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="/video/hero-poster.jpg"
-      >
-        <source src="/video/hero.webm" type="video/webm" />
-        <source src="/video/hero.mp4" type="video/mp4" />
-      </video>
+      {bgVideos.map((src, i) => (
+        <video
+          key={src.mp4}
+          ref={el => { refs.current[i] = el }}
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          style={{ opacity: i === active ? 1 : 0 }}
+          autoPlay={i === 0}
+          muted
+          playsInline
+          preload={i === 0 ? 'auto' : 'metadata'}
+          poster={i === 0 ? '/video/hero-poster.jpg' : undefined}
+          onEnded={i === active ? playNext : undefined}
+        >
+          <source src={src.webm} type="video/webm" />
+          <source src={src.mp4} type="video/mp4" />
+        </video>
+      ))}
       {/* Voile pour garder le texte lisible */}
       <div
         className="absolute inset-0"
