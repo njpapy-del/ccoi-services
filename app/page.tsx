@@ -26,10 +26,11 @@ export default function Home() {
     return () => clearTimeout(timer)
   }, [])
 
-  if (loading) return <LoadingScreen />
-
   return (
     <main className="relative bg-dark min-h-screen">
+      {/* Écran de chargement en surimpression : le contenu reste dans le HTML pour Google */}
+      {loading && <LoadingScreen />}
+
       {/* Ambient background orbs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div
