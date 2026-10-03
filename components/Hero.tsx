@@ -189,6 +189,12 @@ const framePhotos = [
     title: 'Ndzouakeu Jeannot Youssef',
     subtitle: 'Founder & Chief AI Engineer',
   },
+  {
+    src: '/team/nour-rouissi.webp',
+    alt: 'Nour Rouissi — Ingénieure Maintenance Backend, CCOI SERVICES',
+    title: 'Nour Rouissi',
+    subtitle: 'Jeune talent · Maintenance Backend',
+  },
   // Photos Unsplash (licence Unsplash) — illustrations du domaine
   {
     src: '/web/frame-code.webp',
@@ -326,6 +332,13 @@ export default function Hero() {
               style={{ background: 'rgba(37,99,235,0.18)', border: '1px solid rgba(37,99,235,0.55)', color: '#bcd0ff' }}
             >
               ★ Créateurs de Ligalo — logiciel juridique →
+            </a>
+            <a
+              href="#jeunes-talents"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold transition-all hover:scale-105"
+              style={{ background: 'rgba(236,72,153,0.16)', border: '1px solid rgba(236,72,153,0.5)', color: '#f9c3df' }}
+            >
+              ✦ Nous recrutons de jeunes talents →
             </a>
           </motion.div>
 
