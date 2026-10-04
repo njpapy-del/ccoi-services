@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
   // ── Title ──────────────────────────────────────────────────────────────────
   title: {
-    default: 'AI Consulting & SaaS Development Company | CCOI SERVICES',
+    default: 'CCOI SERVICES (CCOI Service) — AI, SaaS & Software Development in Tunis',
     template: '%s | CCOI SERVICES',
   },
 
   // ── Description ────────────────────────────────────────────────────────────
   description:
-    'CCOI SERVICES provides AI solutions, SaaS platforms, CRM systems, data analytics and embedded systems for businesses in Europe and USA. Based in Tunis, Tunisia.',
+    'CCOI SERVICES (CCOI Service) is a software and AI engineering company based in Tunis, Tunisia: AI solutions, SaaS platforms, CRM systems, LegalTech (Ligalo) and data analytics for businesses in Africa, Europe and the USA.',
 
   // ── Keywords ───────────────────────────────────────────────────────────────
   keywords: [
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: BASE_URL,
     siteName: 'CCOI SERVICES',
-    title: 'AI Consulting & SaaS Development Company | CCOI SERVICES',
+    title: 'CCOI SERVICES (CCOI Service) — AI, SaaS & Software Development in Tunis',
     description:
       'CCOI SERVICES provides AI solutions, SaaS platforms, CRM systems, data analytics and embedded systems for businesses in Europe and USA.',
     images: [
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@ccoiservices',
     creator: '@ccoiservices',
-    title: 'AI Consulting & SaaS Development | CCOI SERVICES',
+    title: 'CCOI SERVICES — AI, SaaS & Software Development in Tunis',
     description:
       'CCOI SERVICES — AI solutions, SaaS platforms & CRM systems for enterprises in Europe and USA.',
     images: [{ url: '/og-image.jpg', alt: 'CCOI SERVICES' }],
