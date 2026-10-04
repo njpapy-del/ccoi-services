@@ -7,6 +7,17 @@ const __dirname = path.dirname(__filename)
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
+  // Domaine canonique : www.ccoiservice.online → ccoiservice.online (redirection permanente)
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.ccoiservice.online' }],
+        destination: 'https://ccoiservice.online/:path*',
+        permanent: true,
+      },
+    ]
+  },
   typescript: { ignoreBuildErrors: true },
   webpack: (config) => {
     config.resolve.alias = {
