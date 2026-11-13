@@ -24,7 +24,6 @@ const team = [
     color: '#ec4899',
     initials: 'NR',
     isNew: true,
-    photo: '/team/nour-rouissi.webp',
   },
   {
     name: 'Alexis Moreau',

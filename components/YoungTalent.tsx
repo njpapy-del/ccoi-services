@@ -1,13 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { HiAcademicCap, HiUserGroup, HiTrendingUp, HiSparkles, HiArrowRight } from 'react-icons/hi'
-
-const photos = [
-  { src: '/team/nour-rouissi.webp', alt: 'Nour Rouissi, ingénieure IA & génie logiciel, à son poste chez CCOI SERVICES' },
-  { src: '/team/nour-rouissi-2.webp', alt: 'Nour Rouissi au bureau de CCOI SERVICES à Tunis' },
-]
 
 const commitments = [
   {
@@ -30,12 +25,6 @@ const commitments = [
 export default function YoungTalent() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-  const [idx, setIdx] = useState(0)
-
-  useEffect(() => {
-    const t = setInterval(() => setIdx(i => (i + 1) % photos.length), 4500)
-    return () => clearInterval(t)
-  }, [])
 
   return (
     <section id="jeunes-talents" className="relative py-28 px-6 overflow-hidden">
@@ -79,18 +68,13 @@ export default function YoungTalent() {
                 transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
               />
               <div className="relative w-72 h-[22rem] md:w-80 md:h-[25rem] rounded-3xl overflow-hidden bg-dark" style={{ border: '2px solid rgba(236,72,153,0.35)' }}>
-                <AnimatePresence initial={false}>
-                  <motion.img
-                    key={photos[idx].src}
-                    src={photos[idx].src}
-                    alt={photos[idx].alt}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    initial={{ opacity: 0, scale: 1.06 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 1.1 }}
-                  />
-                </AnimatePresence>
+                <div
+                  className="absolute inset-0 flex items-center justify-center text-8xl font-black"
+                  style={{ background: 'linear-gradient(135deg, rgba(236,72,153,0.25), rgba(124,58,237,0.10))', color: '#f9a8d4' }}
+                  aria-label="Nour Rouissi"
+                >
+                  NR
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 h-28" style={{ background: 'linear-gradient(to top, #050508ee, transparent)' }} />
                 <span
                   className="absolute top-4 left-4 text-[11px] font-mono font-semibold px-2.5 py-1 rounded-full"

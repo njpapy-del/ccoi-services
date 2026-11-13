@@ -189,12 +189,6 @@ const framePhotos = [
     title: 'Ndzouakeu Jeannot Youssef',
     subtitle: 'Founder & Chief AI Engineer',
   },
-  {
-    src: '/team/nour-rouissi.webp',
-    alt: 'Nour Rouissi — Ingénieure Maintenance Backend, CCOI SERVICES',
-    title: 'Nour Rouissi',
-    subtitle: 'Jeune talent · Maintenance Backend',
-  },
   // Photos Unsplash (licence Unsplash) — illustrations du domaine
   {
     src: '/web/frame-code.webp',
